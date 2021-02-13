@@ -22,8 +22,8 @@ function App(props) {
   }
   return (
     <div className="app">
-      <Menu recipes={recipes.list} />
       <Home recipes={recipes.list} />
+      <Menu recipes={recipes.list} />
       <Recipe recipe={recipesTest[0]} />
       <Error />
     </div>
