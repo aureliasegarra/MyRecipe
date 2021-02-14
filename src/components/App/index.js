@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Menu from 'src/components/Menu';
 import Home from 'src/components/Home';
@@ -22,10 +23,14 @@ function App(props) {
   }
   return (
     <div className="app">
-      <Home recipes={recipes.list} />
-      <Menu recipes={recipes.list} />
-      <Recipe recipe={recipesTest[0]} />
-      <Error />
+      <Router>
+        <Home recipes={recipes.list} />
+        <Menu recipes={recipes.list} />
+        <Switch>
+          <Route path="/recipe/:id" component={Recipe} recipe={recipesTest[0]} />
+          <Route><Error /></Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+// eslint-disable-next-line no-unused-vars
+
 import './style.scss';
 
 const Menu = ({ recipes }) => (
@@ -10,6 +12,7 @@ const Menu = ({ recipes }) => (
     >
       Accueil
     </a>
+
     {recipes.map((recipe) => (
       <a
         key={recipe.id}
