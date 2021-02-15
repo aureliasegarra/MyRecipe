@@ -1,26 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line no-unused-vars
+import { NavLink } from 'react-router-dom';
 
 import './style.scss';
 
 const Menu = ({ recipes }) => (
   <nav className="menu">
-    <a
-      className="menu-link menu-link--active"
-      href="/"
+    <NavLink
+      to="/"
+      exact
+      className="menu-link"
+      activeClassName="menu-link--active"
     >
       Accueil
-    </a>
+    </NavLink>
 
     {recipes.map((recipe) => (
-      <a
+      <NavLink
+        to={`/recipe/${recipe.slug}`}
         key={recipe.id}
         className="menu-link"
-        href={`/recipe/${recipe.slug}`}
+        activeClassName="menu-link--active"
       >
         {recipe.title}
-      </a>
+      </NavLink>
     ))}
   </nav>
 );
