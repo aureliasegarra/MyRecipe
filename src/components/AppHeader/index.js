@@ -1,11 +1,10 @@
 import React from 'react';
 
 import './style.scss';
-import logo from 'src/assets/logo.png';
 
 const AppHeader = () => (
   <header className="header">
-    <img src={logo} className="header-logo" alt="Logo oRecipes" />
+    <h1 className="header__title">myRecipe</h1>
   </header>
 );
 

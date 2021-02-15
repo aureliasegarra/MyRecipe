@@ -7,7 +7,7 @@
   top: 0;
   width: vars.$menuWidth;
   padding: (vars.$gutter / 2) 0;
-  background-color: color.scale(vars.$color, $lightness: -80%);
+  background-color: rgb(43, 184, 139);
   box-shadow: inset -20px 0 20px -20px rgba(0,0,0,.75);
   height: 100vh;
   
@@ -27,8 +27,8 @@
     }
 
     &--active {
-      color: vars.$color;
-      box-shadow: inset -3px 0 0 vars.$color;
+      color: rgb(29, 29, 29);
+      box-shadow: inset -5px 0 0 vars.$color;
     }
   }
 }

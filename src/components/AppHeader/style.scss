@@ -4,8 +4,11 @@
   padding: (vars.$gutter / 2) vars.$gutter;
   box-shadow: 0 20px 20px -30px rgba(0,0,0,.4); 
   text-align: center;
-
-  &-logo {
-    width: 50px;
+  &__title {
+    font-size: 4em;
+    font-family: 'Lobster', cursive, sans-serif;
+    color: rgb(64, 64, 65);
+    letter-spacing: 3px;
+    margin: vars.$gutter * 1.5;
   }
 }

@@ -3,7 +3,7 @@
 ## Create a web recipes application
 
 ## Illustration
-![Exemple]()
+![Exemple](screenshot.png)
 
 ## Language/tools
 - HTML5 / CSS3 / SCSS

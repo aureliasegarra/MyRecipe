@@ -7,6 +7,7 @@
   width: calc(50% - #{vars.$gutter / 2});
   margin-top: vars.$gutter;
   overflow: hidden;
+  box-shadow: -2px 3px 2px rgb(235, 235, 235);
   
   @media (max-width: vars.$small) {
     width: 100%;
