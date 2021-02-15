@@ -1,36 +1,34 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
 
-import Menu from 'src/components/Menu';
-import Home from 'src/components/Home';
-import Recipe from 'src/components/Recipe';
+import Menu from 'src/containers/Menu';
+import Home from 'src/containers/Home';
+import Recipe from 'src/containers/Recipe';
 import Error from 'src/components/Error';
-
-import recipesTest from 'src/data';
 
 import Loading from './Loading';
 
 import './style.scss';
 
 function App(props) {
+  useEffect(() => {
+    console.log('chargement des données au 1er rendu');
+  }, []);
   // eslint-disable-next-line react/destructuring-assignment
   if (props.loading) {
     return <Loading />;
   }
   return (
     <div className="app">
-      <Route path="/" exact>
-        <Home recipes={recipesTest} />
-      </Route>
-
-      <Route path="/">
-        <Menu recipes={recipesTest} />
-      </Route>
-
+      <Menu />
       <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+
         <Route path="/recipe/:slug">
-          <Recipe recipe={recipesTest[1]} />
+          <Recipe />
         </Route>
 
         <Route path="/error">
