@@ -11,12 +11,13 @@ import Loading from './Loading';
 
 import './style.scss';
 
-function App(props) {
+function App(loading, fetchData) {
   useEffect(() => {
     console.log('chargement des données au 1er rendu');
+    fetchData();
   }, []);
   // eslint-disable-next-line react/destructuring-assignment
-  if (props.loading) {
+  if (loading) {
     return <Loading />;
   }
   return (
@@ -41,6 +42,7 @@ function App(props) {
 
 App.propTypes = {
   loading: PropTypes.bool,
+  fetchData: PropTypes.func.isRequired,
 };
 
 App.defaultProps = {
