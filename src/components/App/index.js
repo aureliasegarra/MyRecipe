@@ -11,12 +11,11 @@ import Loading from './Loading';
 
 import './style.scss';
 
-function App(loading, fetchData) {
+function App({ loading, fetchData }) {
   useEffect(() => {
-    console.log('chargement des données au 1er rendu');
     fetchData();
   }, []);
-  // eslint-disable-next-line react/destructuring-assignment
+
   if (loading) {
     return <Loading />;
   }
@@ -28,11 +27,11 @@ function App(loading, fetchData) {
           <Home />
         </Route>
 
-        <Route path="/recipe/:slug">
+        <Route path="/recipe/:slug" exact>
           <Recipe />
         </Route>
 
-        <Route path="/error">
+        <Route>
           <Error />
         </Route>
       </Switch>

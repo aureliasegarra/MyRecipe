@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux';
 import recipes from './recipes';
 
-const globalReducers = combineReducers({
-  recipes,
+const globalReducer = combineReducers({
+  recipes, // mini reducer
 });
 
-export default globalReducers;
+export default globalReducer;

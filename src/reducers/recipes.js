@@ -1,9 +1,11 @@
-import recipesData from 'src/data';
+import { SAVE_RECIPES } from 'src/actions/recipes';
 
-const initialState = [...recipesData];
+const initialState = [];
 
 const recipes = (state = initialState, action = {}) => {
   switch (action.type) {
+    case SAVE_RECIPES:
+      return [...action.recipes];
     default:
       return state;
   }
