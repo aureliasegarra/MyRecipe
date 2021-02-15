@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 import Menu from 'src/components/Menu';
 import Home from 'src/components/Home';
@@ -14,23 +14,29 @@ import Loading from './Loading';
 import './style.scss';
 
 function App(props) {
-  const recipes = {
-    list: recipesTest,
-  };
   // eslint-disable-next-line react/destructuring-assignment
   if (props.loading) {
     return <Loading />;
   }
   return (
     <div className="app">
-      <Router>
-        <Home recipes={recipes.list} />
-        <Menu recipes={recipes.list} />
-        <Switch>
-          <Route path="/recipe/:id" component={Recipe} recipe={recipesTest[0]} />
-          <Route><Error /></Route>
-        </Switch>
-      </Router>
+      <Route path="/" exact>
+        <Home recipes={recipesTest} />
+      </Route>
+
+      <Route path="/">
+        <Menu recipes={recipesTest} />
+      </Route>
+
+      <Switch>
+        <Route path="/recipe/:slug">
+          <Recipe recipe={recipesTest[1]} />
+        </Route>
+
+        <Route path="/error">
+          <Error />
+        </Route>
+      </Switch>
     </div>
   );
 }
