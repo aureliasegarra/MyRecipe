@@ -9,7 +9,7 @@ const Home = ({ recipes }) => (
   <Page>
     <AppHeader />
     <Content
-      title="Les recettes oRecipes"
+      title="Les recettes myRecipes"
       text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga, explicabo."
       recipes={recipes}
     />

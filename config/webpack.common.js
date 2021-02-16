@@ -33,10 +33,10 @@ module.exports = {
     }),
 
     new HtmlWebpackPlugin({
-      favicon: paths.assets + '/favicon.ico',
+      favicon: paths.assets + '/spoon.ico',
       template: paths.assets + '/index.html',
     }),
-  ],
+  ], 
 
   module: {
     rules: [
