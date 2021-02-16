@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Recipe from 'src/components/Recipe';
+import { findRecipeBySlug } from 'src/selectors/recipes';
 
 const mapStateToProps = (state, ownProps) => {
   // eslint-disable-next-line prefer-destructuring
-  const slug = ownProps.match.params.slug;
-  const recipeFound = state.recipes.find((recipe) => recipe.slug === slug);
+  const { slug } = ownProps.match.params;
   return {
-    recipe: recipeFound,
+    recipe: findRecipeBySlug(state.recipes, slug),
   };
 };
 

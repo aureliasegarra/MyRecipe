@@ -15,7 +15,7 @@
 ## Goals 
 - Discover React (web page usage)
 - Components architecture for scalable application
-- Route management with react router
+- Route management with react-router-dom
 - Fetch data from an API
 - UX / UI
 
