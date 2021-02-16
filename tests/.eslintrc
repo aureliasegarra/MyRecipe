@@ -1,0 +1,9 @@
+// config for the tests
+{
+    "env": {
+        "mocha": true
+    },
+    "rules": {
+        "no-unused-expressions": "off"
+    }
+}
