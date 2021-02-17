@@ -3,7 +3,9 @@ import App from 'src/components/App';
 import { fetchRecipes } from 'src/actions/recipes';
 
 // eslint-disable-next-line no-unused-vars
-const mapStateToProps = (state) => ({});
+const mapStateToProps = (state) => ({
+  loading: state.app.loading,
+});
 
 const mapDispatchToProps = (dispatch) => ({
   fetchData: () => {

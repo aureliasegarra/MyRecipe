@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { FETCH_RECIPES, saveRecipes } from 'src/actions/recipes';
+import { isLoading } from 'src/actions/app';
 
 const recipes = (store) => (next) => (action) => {
   switch (action.type) {
@@ -12,6 +13,10 @@ const recipes = (store) => (next) => (action) => {
         catch (error) {
           // eslint-disable-next-line no-console
           console.log('error', error);
+        }
+        finally {
+          // get off loading
+          store.dispatch(isLoading(false));
         }
       };
 
