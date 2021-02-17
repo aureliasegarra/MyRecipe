@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import LoginForm from 'src/components/LoginForm';
-import { changeValue, login } from 'src/actions/user';
+import { changeValue, login, logout } from 'src/actions/user';
 
 const mapStateToProps = (state) => ({ // link with what we have in the state
   email: state.user.email,
@@ -16,6 +16,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   handleLogin: () => {
     dispatch(login());
+  },
+  handleLogout: () => {
+    dispatch(logout());
   },
 });
 

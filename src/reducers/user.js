@@ -1,4 +1,4 @@
-import { CHANGE_VALUE, SAVE_USER } from 'src/actions/user';
+import { CHANGE_VALUE, SAVE_USER, LOGOUT } from 'src/actions/user';
 
 const initialState = {
   email: '',
@@ -27,6 +27,11 @@ const user = (state = initialState, action = {}) => {
           ...state.infos,
           ...action.user,
         },
+      };
+    }
+    case LOGOUT: {
+      return {
+        ...initialState,
       };
     }
     default:
