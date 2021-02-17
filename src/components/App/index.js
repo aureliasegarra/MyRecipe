@@ -6,6 +6,7 @@ import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Recipe from 'src/containers/Recipe';
 import Error from 'src/components/Error';
+import Favorites from 'src/components/Favorites';
 
 import Loading from './Loading';
 
@@ -25,6 +26,10 @@ function App({ loading, fetchData }) {
       <Switch>
         <Route path="/" exact>
           <Home />
+        </Route>
+
+        <Route path="/favorites" exact>
+          <Favorites />
         </Route>
 
         <Route path="/recipe/:slug" exact>

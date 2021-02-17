@@ -15,6 +15,14 @@ const Menu = ({ recipes }) => (
     >
       Accueil
     </NavLink>
+    <NavLink
+      to="/favorites"
+      exact
+      className="menu-link"
+      activeClassName="menu-link--active"
+    >
+      Mes recettes préférées
+    </NavLink>
 
     {recipes.map((recipe) => (
       <NavLink
