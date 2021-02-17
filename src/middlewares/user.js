@@ -4,6 +4,7 @@ import {
   saveUser,
   fetchFav,
   FETCH_FAV,
+  saveFav,
 } from 'src/actions/user';
 
 const user = (store) => (next) => (action) => {
@@ -29,7 +30,7 @@ const user = (store) => (next) => (action) => {
               Authorization: `bearer ${state.user.infos.token}`,
             },
           });
-          console.log('response', response);
+          store.dispatch(saveFav(response.data));
         }
         catch (error) {
           console.log(error);

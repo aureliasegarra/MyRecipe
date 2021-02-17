@@ -18,11 +18,12 @@
 - Components architecture for scalable application
 - Route management with react-router-dom
 - Fetch data from an API
+- Use of token
 - Implementation of unit tests
 - UX / UI
 
 ## Status
-Project not completed
+Project completed
 
 ## Context
 Project carried out during my training as a web developer

@@ -1,4 +1,9 @@
-import { CHANGE_VALUE, SAVE_USER, LOGOUT } from 'src/actions/user';
+import {
+  CHANGE_VALUE,
+  SAVE_USER,
+  LOGOUT,
+  SAVE_FAV,
+} from 'src/actions/user';
 
 const initialState = {
   email: '',
@@ -33,6 +38,15 @@ const user = (state = initialState, action = {}) => {
     case LOGOUT: {
       return {
         ...initialState,
+      };
+    }
+    case SAVE_FAV: {
+      return {
+        ...state,
+        infos: {
+          ...state.infos,
+          favorites: action.favorites,
+        },
       };
     }
     default:
