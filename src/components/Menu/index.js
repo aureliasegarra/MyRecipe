@@ -5,7 +5,7 @@ import { NavLink } from 'react-router-dom';
 
 import './style.scss';
 
-const Menu = ({ recipes }) => (
+const Menu = ({ recipes, logged }) => (
   <nav className="menu">
     <NavLink
       to="/"
@@ -15,14 +15,16 @@ const Menu = ({ recipes }) => (
     >
       Accueil
     </NavLink>
-    <NavLink
-      to="/favorites"
-      exact
-      className="menu-link"
-      activeClassName="menu-link--active"
-    >
-      Mes recettes préférées
-    </NavLink>
+    {logged && (
+      <NavLink
+        className="menu-link"
+        to="/favorites"
+        activeClassName="menu-link--active"
+        exact
+      >
+        Mes recettes préférées
+      </NavLink>
+    )}
 
     {recipes.map((recipe) => (
       <NavLink
@@ -45,6 +47,7 @@ Menu.propTypes = {
       slug: PropTypes.string.isRequired,
     }),
   ).isRequired,
+  logged: PropTypes.bool.isRequired,
 };
 
 export default Menu;

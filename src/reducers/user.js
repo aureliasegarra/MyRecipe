@@ -7,6 +7,7 @@ const initialState = {
     logged: false,
     pseudo: '',
     token: '',
+    favorites: [],
   },
 };
 

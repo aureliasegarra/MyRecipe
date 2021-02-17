@@ -9,8 +9,8 @@ const Favorites = ({ favorites }) => (
   <Page>
     <AppHeader />
     <Content
-      title="Les recettes myRecipes"
-      text="Hummmm voici mes recettes préférées ..."
+      title="Mes recettes préférées"
+      text="Hummmm voici mes recettes préférées glanées dans mes recherches..."
       recipes={favorites}
     />
   </Page>

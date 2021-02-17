@@ -1,18 +1,18 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Menu from 'src/containers/Menu';
 import Home from 'src/containers/Home';
 import Recipe from 'src/containers/Recipe';
 import Error from 'src/components/Error';
-import Favorites from 'src/components/Favorites';
+import Favorites from 'src/containers/Favorites';
 
 import Loading from './Loading';
 
 import './style.scss';
 
-function App({ loading, fetchData }) {
+function App({ loading, fetchData, logged }) {
   useEffect(() => {
     fetchData();
   }, []);
@@ -24,13 +24,18 @@ function App({ loading, fetchData }) {
     <div className="app">
       <Menu />
       <Switch>
+
         <Route path="/" exact>
           <Home />
         </Route>
 
-        <Route path="/favorites" exact>
-          <Favorites />
-        </Route>
+        {logged ? (
+          <Route path="/favorites" exact>
+            <Favorites />
+          </Route>
+        ) : (
+          <Redirect from="/favorites" to="/" />
+        )}
 
         <Route path="/recipe/:slug" exact>
           <Recipe />
@@ -47,6 +52,7 @@ function App({ loading, fetchData }) {
 App.propTypes = {
   loading: PropTypes.bool,
   fetchData: PropTypes.func.isRequired,
+  logged: PropTypes.bool.isRequired,
 };
 
 App.defaultProps = {
