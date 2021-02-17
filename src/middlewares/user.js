@@ -5,7 +5,6 @@ const user = (store) => (next) => (action) => {
   switch (action.type) {
     case LOGIN: {
       const state = store.getState();
-      console.log('case', LOGIN);
       axios.post('http://localhost:3001/login', {
         email: state.user.email,
         password: state.user.password,

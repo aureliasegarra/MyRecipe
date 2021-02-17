@@ -1,10 +1,12 @@
 import { CHANGE_VALUE, SAVE_USER } from 'src/actions/user';
 
 const initialState = {
-  email: 'vincent@gmail.com',
-  password: 'aze',
+  email: '',
+  password: '',
   infos: {
+    logged: false,
     pseudo: '',
+    token: '',
   },
 };
 
@@ -19,9 +21,11 @@ const user = (state = initialState, action = {}) => {
     case SAVE_USER: {
       return {
         ...state,
+        email: '',
+        password: '',
         infos: {
           ...state.infos,
-          pseudo: action.user.pseudo,
+          ...action.user,
         },
       };
     }

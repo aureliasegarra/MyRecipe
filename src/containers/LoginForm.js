@@ -5,6 +5,8 @@ import { changeValue, login } from 'src/actions/user';
 const mapStateToProps = (state) => ({ // link with what we have in the state
   email: state.user.email,
   password: state.user.password,
+  isLogged: state.user.infos.logged,
+  loggedMessage: `Bonjour ${state.user.infos.pseudo}`,
 });
 
 const mapDispatchToProps = (dispatch) => ({
