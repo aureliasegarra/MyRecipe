@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { LOGIN, saveUser } from 'src/actions/user';
+import {
+  LOGIN,
+  saveUser,
+  fetchFav,
+  FETCH_FAV,
+} from 'src/actions/user';
 
 const user = (store) => (next) => (action) => {
   switch (action.type) {
@@ -10,7 +15,28 @@ const user = (store) => (next) => (action) => {
         password: state.user.password,
       }).then((response) => {
         store.dispatch(saveUser(response.data)); // stock infos get from the request in the store
+        store.dispatch(fetchFav());
       }).catch((error) => console.log(error));
+      break;
+    }
+    case FETCH_FAV: {
+      const fetchFavorites = async () => {
+        try {
+          const state = store.getState();
+          const response = await axios({ // config object
+            url: 'http://localhost:3001/favorites',
+            headers: {
+              Authorization: `bearer ${state.user.infos.token}`,
+            },
+          });
+          console.log('response', response);
+        }
+        catch (error) {
+          console.log(error);
+        }
+      };
+
+      fetchFavorites();
       break;
     }
     default:
